@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import CoreMotion
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
-    
     @IBOutlet weak var StartButton: UIButton!
   
     var countdownTimer: Timer!
     var totalTime = 3
+    var motionManager: CMMotionManager?
     
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -24,7 +25,6 @@ class ViewController: UIViewController {
     
     func updateTime() {
         countdownLabel.text = "\(timeFormatted(totalTime))"
-        
         if totalTime != 0 {
             totalTime -= 1
         } else {
@@ -33,29 +33,31 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func endTimer() {
         countdownTimer.invalidate()
     }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
         let seconds: Int = totalSeconds % 60
-        //        let minutes: Int = (totalSeconds / 60) % 60
-        //     let hours: Int = totalSeconds / 3600
         return String(format: "%2d", seconds)
     }
     
-    @IBAction func startButton(_ sender: UIButton) {
-        
-        startTimer()
-        
-        
+    func checkIfMotionIsAvailable(){
+        motionManager = CMMotionManager()
+        if let manager = motionManager {
+            print("We have motion! \(manager)")
+        } else {
+            print("We dont have motion")
+        }
     }
     
-    
+    @IBAction func startButton(_ sender: UIButton) {
+        startTimer()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkIfMotionIsAvailable()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
