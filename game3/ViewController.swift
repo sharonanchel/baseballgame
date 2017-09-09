@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -18,6 +19,8 @@ class ViewController: UIViewController {
     var countdownTimer: Timer!
     var totalTime = 3
     var motionManager: CMMotionManager?
+    var audioPlayer = AVAudioPlayer()
+    
     
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -57,12 +60,22 @@ class ViewController: UIViewController {
     
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
+        audioPlayer.play()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfMotionIsAvailable()
-        // Do any additional setup after loading the view, typically from a nib.
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
+            audioPlayer.prepareToPlay()
+        }
+            
+            
+        catch{
+            print(error)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

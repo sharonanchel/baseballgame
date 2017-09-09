@@ -22,14 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fe98319312c0578ca9b5256c6e142d27" translatesAutoresizingMaskIntoConstraints="NO" id="fBn-Ze-jAl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Gw-MAz">
                                 <rect key="frame" x="16" y="527" width="288" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Start">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NJ3-De-YmA"/>
@@ -52,15 +49,9 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="J2W-1U-Nxf" secondAttribute="trailing" id="1pG-qd-9BX"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="J2W-1U-Nxf" secondAttribute="bottom" constant="151" id="4N1-Iv-bZP"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fBn-Ze-jAl" secondAttribute="bottom" id="BMd-db-X0h"/>
-                            <constraint firstItem="fBn-Ze-jAl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ei1-IR-jtF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZtS-Gw-MAz" secondAttribute="bottom" constant="5" id="HMu-FP-Mgy"/>
-                            <constraint firstItem="fBn-Ze-jAl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I6f-tD-JJK"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Iry-tx-PHB"/>
-                            <constraint firstAttribute="trailing" secondItem="fBn-Ze-jAl" secondAttribute="trailing" id="Knr-yv-Yk1"/>
                             <constraint firstItem="ZtS-Gw-MAz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ncc-HD-21n"/>
-                            <constraint firstItem="fBn-Ze-jAl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vxv-uz-aaa"/>
-                            <constraint firstItem="fBn-Ze-jAl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="acF-o0-IN9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZtS-Gw-MAz" secondAttribute="trailing" id="g1H-HS-W61"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sOM-EH-8wi" secondAttribute="trailing" id="hgT-oo-YI8"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hsP-JU-uon"/>
@@ -78,7 +69,4 @@
             <point key="canvasLocation" x="135" y="138.38028169014083"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="fe98319312c0578ca9b5256c6e142d27" width="640" height="960"/>
-    </resources>
 </document>
