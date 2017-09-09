@@ -20,6 +20,10 @@ class ViewController: UIViewController {
     var totalTime = 3
     var motionManager: CMMotionManager?
     var audioPlayer = AVAudioPlayer()
+    var arr: [Double] = []
+    var sum: Double = 0
+    
+    let myQueue = OperationQueue()
     
     
     func startTimer() {
@@ -31,46 +35,58 @@ class ViewController: UIViewController {
         if totalTime != 0 {
             totalTime -= 1
         } else {
-            endTimer()
             totalTime = 3
             countdownLabel.text = "Swing!"
+            if checkIfMotionIsAvailable() {
+                startGyroUpdates(manager: motionManager!, queue: myQueue)
+            } else {
+                countdownLabel.text = "No motion sensor detected"
+            }
+            countdownTimer.invalidate()
         }
     }
     
-    func endTimer() {
-        countdownTimer.invalidate()
-    }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
         let seconds: Int = totalSeconds % 60
         return String(format: "%2d", seconds)
     }
     
-    func changeSpeed(speed: Double){
-        speedLabel.text = "\(round(speed))"
+    
+    func getZrotation(data: CMGyroData!) -> Bool{
+        if data.rotationRate.z < 3 {
+            if arr.count > 0 {
+                for i in arr {
+                    sum += i
+                }
+                print(arr)
+                print(sum/Double(arr.count))
+                DispatchQueue.main.async {
+                    self.speedLabel.text = "\(Int(self.sum/Double(self.arr.count))*3) points!"
+                }
+                sum = 0
+                arr = []
+                return true
+            } else {
+                return false
+            }
+        } else {
+            arr.append(data.rotationRate.z)
+            return false
+        }
     }
     
+    
     func startGyroUpdates(manager: CMMotionManager, queue: OperationQueue){
-        var arr: [Double] = []
-        var sum: Double = 0
         manager.gyroUpdateInterval = 1/60
         manager.startGyroUpdates(to: queue){
             (data: CMGyroData?, error: Error?) in
             if let checkData = data {
-                if checkData.rotationRate.z < 3 {
-                    if arr.count > 0 {
-                        for i in arr {
-                            sum += i
-                        }
-                        print(sum/Double(arr.count))
-                        self.changeSpeed(speed: sum/Double(arr.count))
-                        sum = 0
-                        manager.stopGyroUpdates()
-                    }
-                    arr = []
-                } else if (checkData.rotationRate.z > 3) {
-                    arr.append(checkData.rotationRate.z)
+                if self.getZrotation(data: checkData) {
+                    manager.stopGyroUpdates()
                 }
+            } else if let errors = error{
+                print(errors)
             }
         }
     }
@@ -78,7 +94,7 @@ class ViewController: UIViewController {
     func checkIfMotionIsAvailable() -> Bool{
         motionManager = CMMotionManager()
         if let manager = motionManager {
-            if manager.isDeviceMotionAvailable{
+            if manager.isDeviceMotionAvailable {
                 return true
             } else {
                 return false
@@ -91,6 +107,8 @@ class ViewController: UIViewController {
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
         audioPlayer.play()
+        
+        
     }
     
     func accessSoundFiles(){
@@ -105,14 +123,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myQueue = OperationQueue()
-        if checkIfMotionIsAvailable() {
-            startGyroUpdates(manager: motionManager!, queue: myQueue)
-            accessSoundFiles()
-        } else {
-            countdownLabel.text = "No motion sensor detected"
-        // Do any additional setup after loading the view, typically from a nib.
-        }
+        accessSoundFiles()
     }
     
     override func didReceiveMemoryWarning() {
