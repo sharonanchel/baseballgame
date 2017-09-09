@@ -93,15 +93,26 @@ class ViewController: UIViewController {
         audioPlayer.play()
     }
     
+    func accessSoundFiles(){
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print(error)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let myQueue = OperationQueue()
         if checkIfMotionIsAvailable() {
             startGyroUpdates(manager: motionManager!, queue: myQueue)
+            accessSoundFiles()
         } else {
             countdownLabel.text = "No motion sensor detected"
-        }
         // Do any additional setup after loading the view, typically from a nib.
+        }
     }
     
     override func didReceiveMemoryWarning() {
