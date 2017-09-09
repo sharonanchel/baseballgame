@@ -204,6 +204,7 @@
 				TargetAttributes = {
 					69C9E32B1F638037006BD4BE = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 8UB7RHG236;
 						ProvisioningStyle = Automatic;
 					};
 					69C9E33F1F638037006BD4BE = {
@@ -424,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8UB7RHG236;
 				INFOPLIST_FILE = game3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cuauhtemoc-hernandez.game3";
@@ -436,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8UB7RHG236;
 				INFOPLIST_FILE = game3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cuauhtemoc-hernandez.game3";
@@ -517,6 +520,7 @@
 				69C9E3561F638038006BD4BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69C9E3571F638038006BD4BE /* Build configuration list for PBXNativeTarget "game3Tests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +529,7 @@
 				69C9E3591F638038006BD4BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69C9E35A1F638038006BD4BE /* Build configuration list for PBXNativeTarget "game3UITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +538,7 @@
 				69C9E35C1F638038006BD4BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

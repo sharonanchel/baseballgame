@@ -46,15 +46,45 @@ class ViewController: UIViewController {
         return String(format: "%2d", seconds)
     }
     
-    func checkIfMotionIsAvailable(){
+    func changeSpeed(speed: Double){
+        speedLabel.text = "\(round(speed))"
+    }
+    
+    func startGyroUpdates(manager: CMMotionManager, queue: OperationQueue){
+        var arr: [Double] = []
+        var sum: Double = 0
+        manager.gyroUpdateInterval = 1/60
+        manager.startGyroUpdates(to: queue){
+            (data: CMGyroData?, error: Error?) in
+            if let checkData = data {
+                if checkData.rotationRate.z < 3 {
+                    if arr.count > 0 {
+                        for i in arr {
+                            sum += i
+                        }
+                        print(sum/Double(arr.count))
+                        self.changeSpeed(speed: sum/Double(arr.count))
+                        sum = 0
+                        manager.stopGyroUpdates()
+                    }
+                    arr = []
+                } else if (checkData.rotationRate.z > 3) {
+                    arr.append(checkData.rotationRate.z)
+                }
+            }
+        }
+    }
+    
+    func checkIfMotionIsAvailable() -> Bool{
         motionManager = CMMotionManager()
         if let manager = motionManager {
-            print("We have motion! \(manager)")
             if manager.isDeviceMotionAvailable{
-                print("We have motion")
+                return true
+            } else {
+                return false
             }
         } else {
-            print("We dont have motion")
+            return false
         }
     }
     
@@ -63,19 +93,26 @@ class ViewController: UIViewController {
         audioPlayer.play()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        checkIfMotionIsAvailable()
+    func accessSoundFiles(){
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
             audioPlayer.prepareToPlay()
         }
-            
-            
         catch{
             print(error)
         }
-        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let myQueue = OperationQueue()
+        if checkIfMotionIsAvailable() {
+            startGyroUpdates(manager: motionManager!, queue: myQueue)
+            accessSoundFiles()
+        } else {
+            countdownLabel.text = "No motion sensor detected"
+        // Do any additional setup after loading the view, typically from a nib.
+        }
     }
     
     override func didReceiveMemoryWarning() {
