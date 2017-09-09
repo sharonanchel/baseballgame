@@ -46,6 +46,9 @@ class ViewController: UIViewController {
         motionManager = CMMotionManager()
         if let manager = motionManager {
             print("We have motion! \(manager)")
+            if manager.isDeviceMotionAvailable{
+                print("We have motion")
+            }
         } else {
             print("We dont have motion")
         }
