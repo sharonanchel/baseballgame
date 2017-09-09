@@ -29,7 +29,8 @@ class ViewController: UIViewController {
             totalTime -= 1
         } else {
             endTimer()
-            countdownLabel.text = "GO"
+            totalTime = 3
+            countdownLabel.text = "Swing!"
         }
     }
     
