@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     var hits: Int = 0
     var currentGamePoints: Int = 0
     var leaderboard: [Int] = []
+    var audioPlayerArray         = [AVAudioPlayer]()
     
     let myQueue = OperationQueue()
     
@@ -88,19 +89,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func strikerSound(){
-        if strikes == 1 {
-    
-                do{
-                    audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "strike1", ofType: "mp3")!))
-                    audioPlayer.prepareToPlay()
-                }
-                catch{
-                    print(error)
-                }
-            
-        }
-    }
+
     
     
     func startGyroUpdates(manager: CMMotionManager, queue: OperationQueue){
@@ -139,35 +128,64 @@ class ViewController: UIViewController {
     }
     
     func checkStrikeOut(){
-        if strikes == 3 {
+        if strikes == 1 {
+            playSound("strike1.mp3")
+        }
+        else if strikes == 1 {
+            playSound("strike2.mp3")
+        }
+        else if strikes == 3 {
             countdownLabel.text = "You WIN!"
+            playSound("strike3.mp3")
             resetGame()
         } else if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
+            playSound("metalbat.mp3")
+            playSound("Sad Trombone Sound.mp3")
             resetGame()
         }
     }
     
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
-        audioPlayer.play()
+//      audioPlayer.play()
+        playSound("3,2,1,Swing.m4a")
         batter.generateHitScore()
     }
     
-    
-    func accessSoundFiles(){
+    func playSound(_ soundName: String)
+    {
+        
+        var audioPlayer        = AVAudioPlayer()
+        let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: soundName, ofType: nil)!)
+        
         do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
+            audioPlayer = try AVAudioPlayer(contentsOf: alertSound )
+            audioPlayerArray.append(audioPlayer)
+            
             audioPlayer.prepareToPlay()
+            audioPlayer.play()
         }
         catch{
-            print(error)
-        }
+            print("error")
+        }  
     }
+    
+//    
+//    func accessSoundFiles(){
+//        do{
+//            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
+//            audioPlayer.prepareToPlay()
+//        }
+//        catch{
+//            print(error)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        accessSoundFiles()
+//       accessSoundFiles()
+//        sadSound()
     }
     
     override func didReceiveMemoryWarning() {
