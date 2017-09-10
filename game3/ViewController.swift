@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     var strikes: Int = 0
     var hits: Int = 0
     var currentGamePoints: Int = 0
-    var leaderboard: [Int] = [124,343]
+    var leaderboard: [Int] = []
     
     let myQueue = OperationQueue()
     
@@ -161,9 +161,10 @@ class ViewController: UIViewController {
     @IBAction func leaderboardButton(_ sender: UIButton) {
         var leadText = ""
         leaderboard.sort{ $0 > $1 }
-        for score in leaderboard {
-            print(score)
-            leadText += "You: \(score) \r\n"
+        for (index, score) in leaderboard.enumerated() {
+            if index < 3 {
+                leadText += "You: \(score) \r\n"
+            }
         }
         print(leadText)
         countdownLabel.text = leadText
