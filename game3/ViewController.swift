@@ -68,11 +68,14 @@ class ViewController: UIViewController {
                 }
                 player.setHitScore(hitScore: Int((sum/Double(arr.count)*3)))
                 DispatchQueue.main.async {
-                    print("Batter: \(self.batter.getHitScore()), Player: \(self.player.getHitScore()) ")
+                    print("Batter: \(self.batter.getHitScore()), Player: \(self.player.getHitScore())")
                     if self.batter.checkIfHit(playersNum: self.player.getHitScore()){
+                        //here is where you would lose or hit sound
                         self.hits += 1
                     } else {
+                        //here is where you would strike the person out once
                         self.countdownLabel.text = "Strike!"
+                        self.currentGamePoints += self.player.getHitScore()
                         self.strikes += 1
                     }
                     self.speedLabel.text = "\(self.player.hitScore) points!"
@@ -84,6 +87,7 @@ class ViewController: UIViewController {
                 return false
             }
         } else {
+            //here is where you would add the swoops sound
             arr.append(data.rotationRate.z)
             return false
         }
@@ -125,8 +129,10 @@ class ViewController: UIViewController {
     func resetGame(){
         strikes = 0
         hits = 0
+        currentGamePoints = 0
     }
     
+    // this is where we check the strike out
     func checkStrikeOut(){
         if strikes == 1 {
             playSound("strike1.mp3")
@@ -145,6 +151,7 @@ class ViewController: UIViewController {
             resetGame()
         }
     }
+
     
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
