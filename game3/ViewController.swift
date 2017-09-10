@@ -20,6 +20,16 @@ class ViewController: UIViewController {
     var totalTime = 3
     var motionManager: CMMotionManager?
     var audioPlayer = AVAudioPlayer()
+    var arr: [Double] = []
+    var sum: Double = 0
+    var batter = Batter()
+    var player = Player()
+    var strikes: Int = 0
+    var hits: Int = 0
+    var currentGamePoints: Int = 0
+    var leaderboard: [Int] = []
+    
+    let myQueue = OperationQueue()
     
     
     func startTimer() {
@@ -31,46 +41,85 @@ class ViewController: UIViewController {
         if totalTime != 0 {
             totalTime -= 1
         } else {
-            endTimer()
             totalTime = 3
             countdownLabel.text = "Swing!"
+            if checkIfMotionIsAvailable() {
+                startGyroUpdates(manager: motionManager!, queue: myQueue)
+            } else {
+                countdownLabel.text = "No motion sensor detected"
+            }
+            countdownTimer.invalidate()
         }
     }
     
-    func endTimer() {
-        countdownTimer.invalidate()
-    }
     
     func timeFormatted(_ totalSeconds: Int) -> String {
         let seconds: Int = totalSeconds % 60
         return String(format: "%2d", seconds)
     }
     
-    func changeSpeed(speed: Double){
-        speedLabel.text = "\(round(speed))"
+    
+    func getZrotation(data: CMGyroData!) -> Bool{
+        if data.rotationRate.z < 3 {
+            if arr.count > 0 {
+                for i in arr {
+                    sum += i
+                }
+                player.setHitScore(hitScore: Int((sum/Double(arr.count)*3)))
+                DispatchQueue.main.async {
+                    print("Batter: \(self.batter.getHitScore()), Player: \(self.player.getHitScore())")
+                    if self.batter.checkIfHit(playersNum: self.player.getHitScore()){
+                        //here is where you would lose or hit sound
+                        self.hits += 1
+                    } else {
+                        //here is where you would strike the person out once
+                        self.countdownLabel.text = "Strike!"
+                        self.currentGamePoints += self.player.getHitScore()
+                        self.strikes += 1
+                    }
+                    self.speedLabel.text = "\(self.player.hitScore) points!"
+                }
+                sum = 0
+                arr = []
+                return true
+            } else {
+                return false
+            }
+        } else {
+            //here is where you would add the swoops sound
+            arr.append(data.rotationRate.z)
+            return false
+        }
     }
     
+    func strikerSound(){
+        if strikes == 1 {
+    
+                do{
+                    audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "strike1", ofType: "mp3")!))
+                    audioPlayer.prepareToPlay()
+                }
+                catch{
+                    print(error)
+                }
+            
+        }
+    }
+    
+    
     func startGyroUpdates(manager: CMMotionManager, queue: OperationQueue){
-        var arr: [Double] = []
-        var sum: Double = 0
         manager.gyroUpdateInterval = 1/60
         manager.startGyroUpdates(to: queue){
             (data: CMGyroData?, error: Error?) in
             if let checkData = data {
-                if checkData.rotationRate.z < 3 {
-                    if arr.count > 0 {
-                        for i in arr {
-                            sum += i
-                        }
-                        print(sum/Double(arr.count))
-                        self.changeSpeed(speed: sum/Double(arr.count))
-                        sum = 0
-                        manager.stopGyroUpdates()
+                if self.getZrotation(data: checkData) {
+                    manager.stopGyroUpdates()
+                    DispatchQueue.main.async {
+                        self.checkStrikeOut()
                     }
-                    arr = []
-                } else if (checkData.rotationRate.z > 3) {
-                    arr.append(checkData.rotationRate.z)
                 }
+            } else if let errors = error{
+                print(errors)
             }
         }
     }
@@ -78,7 +127,7 @@ class ViewController: UIViewController {
     func checkIfMotionIsAvailable() -> Bool{
         motionManager = CMMotionManager()
         if let manager = motionManager {
-            if manager.isDeviceMotionAvailable{
+            if manager.isDeviceMotionAvailable {
                 return true
             } else {
                 return false
@@ -88,9 +137,45 @@ class ViewController: UIViewController {
         }
     }
     
+    func resetGame(){
+        strikes = 0
+        hits = 0
+        currentGamePoints = 0
+    }
+    
+    // this is where we check the strike out
+    func checkStrikeOut(){
+        if strikes == 1 {
+            
+        } else if strikes == 2 {
+            
+        } else if strikes == 3 {
+            countdownLabel.text = "You WIN!"
+            leaderboard.append(currentGamePoints)
+            resetGame()
+        } else if hits == 1 {
+            countdownLabel.text = "The batter hit the ball, You Lose"
+            resetGame()
+        }
+    }
+
+    
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
         audioPlayer.play()
+        batter.generateHitScore()
+    }
+    
+    @IBAction func leaderboardButton(_ sender: UIButton) {
+        var leadText = ""
+        leaderboard.sort{ $0 > $1 }
+        for (index, score) in leaderboard.enumerated() {
+            if index < 3 {
+                leadText += "You: \(score) \r\n"
+            }
+        }
+        print(leadText)
+        countdownLabel.text = leadText
     }
     
     func accessSoundFiles(){
@@ -105,14 +190,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myQueue = OperationQueue()
-        if checkIfMotionIsAvailable() {
-            startGyroUpdates(manager: motionManager!, queue: myQueue)
-            accessSoundFiles()
-        } else {
-            countdownLabel.text = "No motion sensor detected"
-        // Do any additional setup after loading the view, typically from a nib.
-        }
+        accessSoundFiles()
     }
     
     override func didReceiveMemoryWarning() {

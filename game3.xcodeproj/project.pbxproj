@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		444AA8D11F64AFFB00799ABE /* batter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444AA8D01F64AFFB00799ABE /* batter.swift */; };
 		69C9E3301F638037006BD4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E32F1F638037006BD4BE /* AppDelegate.swift */; };
 		69C9E3321F638037006BD4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E3311F638037006BD4BE /* ViewController.swift */; };
 		69C9E3351F638037006BD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3331F638037006BD4BE /* Main.storyboard */; };
@@ -15,6 +16,13 @@
 		69C9E3451F638037006BD4BE /* game3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E3441F638037006BD4BE /* game3Tests.swift */; };
 		69C9E3501F638038006BD4BE /* game3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E34F1F638038006BD4BE /* game3UITests.swift */; };
 		69C9E35F1F647E41006BD4BE /* 3,2,1,Swing.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E35E1F647D3A006BD4BE /* 3,2,1,Swing.m4a */; };
+		69C9E3661F64A846006BD4BE /* Cheers1.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3601F64A846006BD4BE /* Cheers1.m4a */; };
+		69C9E3671F64A846006BD4BE /* strike1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3611F64A846006BD4BE /* strike1.mp3 */; };
+		69C9E3681F64A846006BD4BE /* strike2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3621F64A846006BD4BE /* strike2.mp3 */; };
+		69C9E3691F64A846006BD4BE /* strike3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3631F64A846006BD4BE /* strike3.mp3 */; };
+		69C9E36A1F64A846006BD4BE /* Sad Trombone Sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3641F64A846006BD4BE /* Sad Trombone Sound.mp3 */; };
+		69C9E36B1F64A846006BD4BE /* metalbat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3651F64A846006BD4BE /* metalbat.mp3 */; };
+		69C9E36D1F64A8C4006BD4BE /* Swoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E36C1F64A8C4006BD4BE /* Swoosh.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		444AA8D01F64AFFB00799ABE /* batter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batter.swift; sourceTree = "<group>"; };
 		69C9E32C1F638037006BD4BE /* game3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = game3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C9E32F1F638037006BD4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69C9E3311F638037006BD4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +58,13 @@
 		69C9E34F1F638038006BD4BE /* game3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game3UITests.swift; sourceTree = "<group>"; };
 		69C9E3511F638038006BD4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69C9E35E1F647D3A006BD4BE /* 3,2,1,Swing.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "3,2,1,Swing.m4a"; sourceTree = "<group>"; };
+		69C9E3601F64A846006BD4BE /* Cheers1.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cheers1.m4a; sourceTree = "<group>"; };
+		69C9E3611F64A846006BD4BE /* strike1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = strike1.mp3; sourceTree = "<group>"; };
+		69C9E3621F64A846006BD4BE /* strike2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = strike2.mp3; sourceTree = "<group>"; };
+		69C9E3631F64A846006BD4BE /* strike3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = strike3.mp3; sourceTree = "<group>"; };
+		69C9E3641F64A846006BD4BE /* Sad Trombone Sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sad Trombone Sound.mp3"; sourceTree = "<group>"; };
+		69C9E3651F64A846006BD4BE /* metalbat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = metalbat.mp3; sourceTree = "<group>"; };
+		69C9E36C1F64A8C4006BD4BE /* Swoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swoosh.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +118,7 @@
 				69C9E35D1F647CDE006BD4BE /* music */,
 				69C9E32F1F638037006BD4BE /* AppDelegate.swift */,
 				69C9E3311F638037006BD4BE /* ViewController.swift */,
+				444AA8D01F64AFFB00799ABE /* batter.swift */,
 				69C9E3331F638037006BD4BE /* Main.storyboard */,
 				69C9E3361F638037006BD4BE /* Assets.xcassets */,
 				69C9E3381F638037006BD4BE /* LaunchScreen.storyboard */,
@@ -131,6 +148,13 @@
 		69C9E35D1F647CDE006BD4BE /* music */ = {
 			isa = PBXGroup;
 			children = (
+				69C9E3601F64A846006BD4BE /* Cheers1.m4a */,
+				69C9E3611F64A846006BD4BE /* strike1.mp3 */,
+				69C9E3621F64A846006BD4BE /* strike2.mp3 */,
+				69C9E3631F64A846006BD4BE /* strike3.mp3 */,
+				69C9E3641F64A846006BD4BE /* Sad Trombone Sound.mp3 */,
+				69C9E36C1F64A8C4006BD4BE /* Swoosh.mp3 */,
+				69C9E3651F64A846006BD4BE /* metalbat.mp3 */,
 				69C9E35E1F647D3A006BD4BE /* 3,2,1,Swing.m4a */,
 			);
 			name = music;
@@ -246,8 +270,15 @@
 			files = (
 				69C9E35F1F647E41006BD4BE /* 3,2,1,Swing.m4a in Resources */,
 				69C9E33A1F638037006BD4BE /* LaunchScreen.storyboard in Resources */,
+				69C9E3671F64A846006BD4BE /* strike1.mp3 in Resources */,
+				69C9E3681F64A846006BD4BE /* strike2.mp3 in Resources */,
 				69C9E3371F638037006BD4BE /* Assets.xcassets in Resources */,
 				69C9E3351F638037006BD4BE /* Main.storyboard in Resources */,
+				69C9E36A1F64A846006BD4BE /* Sad Trombone Sound.mp3 in Resources */,
+				69C9E3691F64A846006BD4BE /* strike3.mp3 in Resources */,
+				69C9E36B1F64A846006BD4BE /* metalbat.mp3 in Resources */,
+				69C9E36D1F64A8C4006BD4BE /* Swoosh.mp3 in Resources */,
+				69C9E3661F64A846006BD4BE /* Cheers1.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +305,7 @@
 			files = (
 				69C9E3321F638037006BD4BE /* ViewController.swift in Sources */,
 				69C9E3301F638037006BD4BE /* AppDelegate.swift in Sources */,
+				444AA8D11F64AFFB00799ABE /* batter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +457,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8UB7RHG236;
 				INFOPLIST_FILE = game3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cuauhtemoc-hernandez.game3";
+				PRODUCT_BUNDLE_IDENTIFIER = lormanlau.baseballgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -438,11 +472,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8UB7RHG236;
 				INFOPLIST_FILE = game3/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "cuauhtemoc-hernandez.game3";
+				PRODUCT_BUNDLE_IDENTIFIER = lormanlau.baseballgame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

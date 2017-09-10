@@ -38,12 +38,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CountDown " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-EH-8wi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CountDown " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-EH-8wi">
                                 <rect key="frame" x="16" y="196.5" width="288" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-Hh-8yg">
+                                <rect key="frame" x="118" y="269" width="84" height="30"/>
+                                <state key="normal" title="leaderBoard"/>
+                                <connections>
+                                    <action selector="leaderboardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2x-bO-ig6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -51,11 +58,13 @@
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="J2W-1U-Nxf" secondAttribute="bottom" constant="151" id="4N1-Iv-bZP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZtS-Gw-MAz" secondAttribute="bottom" constant="5" id="HMu-FP-Mgy"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Iry-tx-PHB"/>
+                            <constraint firstItem="tXh-Hh-8yg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ls7-DQ-Dl9"/>
                             <constraint firstItem="ZtS-Gw-MAz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ncc-HD-21n"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZtS-Gw-MAz" secondAttribute="trailing" id="g1H-HS-W61"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sOM-EH-8wi" secondAttribute="trailing" id="hgT-oo-YI8"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hsP-JU-uon"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="o5a-Cl-eWx"/>
+                            <constraint firstItem="ZtS-Gw-MAz" firstAttribute="top" secondItem="tXh-Hh-8yg" secondAttribute="bottom" constant="228" id="qD9-qK-3hA"/>
                         </constraints>
                     </view>
                     <connections>
