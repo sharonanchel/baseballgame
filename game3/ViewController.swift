@@ -208,8 +208,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//       accessSoundFiles()
-//        sadSound()
+//        accessSoundFiles()
+        backgroundImage.layer.zPosition = -1
     }
     
     override func didReceiveMemoryWarning() {
