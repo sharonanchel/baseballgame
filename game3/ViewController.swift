@@ -88,6 +88,20 @@ class ViewController: UIViewController {
         }
     }
     
+    func strikerSound(){
+        if strikes == 1 {
+    
+                do{
+                    audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "strike1", ofType: "mp3")!))
+                    audioPlayer.prepareToPlay()
+                }
+                catch{
+                    print(error)
+                }
+            
+        }
+    }
+    
     
     func startGyroUpdates(manager: CMMotionManager, queue: OperationQueue){
         manager.gyroUpdateInterval = 1/60
