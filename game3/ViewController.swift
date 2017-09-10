@@ -72,6 +72,7 @@ class ViewController: UIViewController {
                         self.hits += 1
                     } else {
                         self.countdownLabel.text = "Strike!"
+                        self.currentGamePoints += self.player.getHitScore()
                         self.strikes += 1
                     }
                     self.speedLabel.text = "\(self.player.hitScore) points!"
@@ -122,15 +123,25 @@ class ViewController: UIViewController {
     func resetGame(){
         strikes = 0
         hits = 0
+        currentGamePoints = 0
     }
     
     func checkStrikeOut(){
         if strikes == 3 {
             countdownLabel.text = "You WIN!"
+            leaderboard.append(currentGamePoints)
             resetGame()
         } else if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
             resetGame()
+        }
+    }
+    
+    func BubbleSort(arr: [Int]){
+        for i in 0..<arr.count {
+            if arr[i] < arr[i + 1] {
+                var temp = arr[i];
+            }
         }
     }
     
@@ -140,6 +151,10 @@ class ViewController: UIViewController {
         batter.generateHitScore()
     }
     
+    @IBAction func leaderboardButton(_ sender: UIButton) {
+        countdownLabel.text = ""
+        
+    }
     
     func accessSoundFiles(){
         do{
