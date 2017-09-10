@@ -147,6 +147,7 @@ class ViewController: UIViewController {
             resetGame()
         } else if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
+            
             resetGame()
         }
     }
