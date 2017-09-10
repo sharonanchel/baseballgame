@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     var strikes: Int = 0
     var hits: Int = 0
     var currentGamePoints: Int = 0
-    var leaderboard: [Int] = []
+    var leaderboard: [Int] = [124,343]
     
     let myQueue = OperationQueue()
     
@@ -150,14 +150,7 @@ class ViewController: UIViewController {
             resetGame()
         }
     }
-    
-    func BubbleSort(arr: [Int]){
-        for i in 0..<arr.count {
-            if arr[i] < arr[i + 1] {
-                var temp = arr[i];
-            }
-        }
-    }
+
     
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
@@ -166,8 +159,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func leaderboardButton(_ sender: UIButton) {
-        countdownLabel.text = ""
-        
+        var leadText = ""
+        leaderboard.sort{ $0 > $1 }
+        for score in leaderboard {
+            print(score)
+            leadText += "You: \(score) \r\n"
+        }
+        print(leadText)
+        countdownLabel.text = leadText
     }
     
     func accessSoundFiles(){
