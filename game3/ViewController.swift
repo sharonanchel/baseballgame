@@ -22,6 +22,12 @@ class ViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     var arr: [Double] = []
     var sum: Double = 0
+    var batter = Batter()
+    var player = Player()
+    var strikes: Int = 0
+    var hits: Int = 0
+    var currentGamePoints: Int = 0
+    var leaderboard: [Int] = []
     
     let myQueue = OperationQueue()
     
@@ -59,10 +65,16 @@ class ViewController: UIViewController {
                 for i in arr {
                     sum += i
                 }
-                print(arr)
-                print(sum/Double(arr.count))
+                player.setHitScore(hitScore: Int((sum/Double(arr.count)*3)))
                 DispatchQueue.main.async {
-                    self.speedLabel.text = "\(Int(self.sum/Double(self.arr.count))*3) points!"
+                    print("Batter: \(self.batter.getHitScore()), Player: \(self.player.getHitScore()) ")
+                    if self.batter.checkIfHit(playersNum: self.player.getHitScore()){
+                        self.hits += 1
+                    } else {
+                        self.countdownLabel.text = "Strike!"
+                        self.strikes += 1
+                    }
+                    self.speedLabel.text = "\(self.player.hitScore) points!"
                 }
                 sum = 0
                 arr = []
@@ -84,6 +96,9 @@ class ViewController: UIViewController {
             if let checkData = data {
                 if self.getZrotation(data: checkData) {
                     manager.stopGyroUpdates()
+                    DispatchQueue.main.async {
+                        self.checkStrikeOut()
+                    }
                 }
             } else if let errors = error{
                 print(errors)
@@ -104,12 +119,27 @@ class ViewController: UIViewController {
         }
     }
     
+    func resetGame(){
+        strikes = 0
+        hits = 0
+    }
+    
+    func checkStrikeOut(){
+        if strikes == 3 {
+            countdownLabel.text = "You WIN!"
+            resetGame()
+        } else if hits == 1 {
+            countdownLabel.text = "The batter hit the ball, You Lose"
+            resetGame()
+        }
+    }
+    
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
         audioPlayer.play()
-        
-        
+        batter.generateHitScore()
     }
+    
     
     func accessSoundFiles(){
         do{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		444AA8D11F64AFFB00799ABE /* batter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444AA8D01F64AFFB00799ABE /* batter.swift */; };
 		69C9E3301F638037006BD4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E32F1F638037006BD4BE /* AppDelegate.swift */; };
 		69C9E3321F638037006BD4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C9E3311F638037006BD4BE /* ViewController.swift */; };
 		69C9E3351F638037006BD4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3331F638037006BD4BE /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		444AA8D01F64AFFB00799ABE /* batter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = batter.swift; sourceTree = "<group>"; };
 		69C9E32C1F638037006BD4BE /* game3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = game3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69C9E32F1F638037006BD4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		69C9E3311F638037006BD4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				69C9E35D1F647CDE006BD4BE /* music */,
 				69C9E32F1F638037006BD4BE /* AppDelegate.swift */,
 				69C9E3311F638037006BD4BE /* ViewController.swift */,
+				444AA8D01F64AFFB00799ABE /* batter.swift */,
 				69C9E3331F638037006BD4BE /* Main.storyboard */,
 				69C9E3361F638037006BD4BE /* Assets.xcassets */,
 				69C9E3381F638037006BD4BE /* LaunchScreen.storyboard */,
@@ -302,6 +305,7 @@
 			files = (
 				69C9E3321F638037006BD4BE /* ViewController.swift in Sources */,
 				69C9E3301F638037006BD4BE /* AppDelegate.swift in Sources */,
+				444AA8D11F64AFFB00799ABE /* batter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
