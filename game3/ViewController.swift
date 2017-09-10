@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     var player = Player()
     var strikes: Int = 0
     var hits: Int = 0
+    var currentGamePoints: Int = 0
+    var leaderboard: [Int] = []
     
     let myQueue = OperationQueue()
     
