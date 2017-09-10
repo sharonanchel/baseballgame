@@ -67,11 +67,14 @@ class ViewController: UIViewController {
                 }
                 player.setHitScore(hitScore: Int((sum/Double(arr.count)*3)))
                 DispatchQueue.main.async {
-                    print("Batter: \(self.batter.getHitScore()), Player: \(self.player.getHitScore()) ")
+                    print("Batter: \(self.batter.getHitScore()), Player: \(self.player.getHitScore())")
                     if self.batter.checkIfHit(playersNum: self.player.getHitScore()){
+                        //here is where you would lose or hit sound
                         self.hits += 1
                     } else {
+                        //here is where you would strike the person out once
                         self.countdownLabel.text = "Strike!"
+                        self.currentGamePoints += self.player.getHitScore()
                         self.strikes += 1
                     }
                     self.speedLabel.text = "\(self.player.hitScore) points!"
@@ -83,6 +86,7 @@ class ViewController: UIViewController {
                 return false
             }
         } else {
+            //here is where you would add the swoops sound
             arr.append(data.rotationRate.z)
             return false
         }
@@ -136,18 +140,25 @@ class ViewController: UIViewController {
     func resetGame(){
         strikes = 0
         hits = 0
+        currentGamePoints = 0
     }
     
+    // this is where we check the strike out
     func checkStrikeOut(){
-        if strikes == 3 {
+        if strikes == 1 {
+            
+        } else if strikes == 2 {
+            
+        } else if strikes == 3 {
             countdownLabel.text = "You WIN!"
+            leaderboard.append(currentGamePoints)
             resetGame()
         } else if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
-            
             resetGame()
         }
     }
+
     
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
@@ -155,6 +166,17 @@ class ViewController: UIViewController {
         batter.generateHitScore()
     }
     
+    @IBAction func leaderboardButton(_ sender: UIButton) {
+        var leadText = ""
+        leaderboard.sort{ $0 > $1 }
+        for (index, score) in leaderboard.enumerated() {
+            if index < 3 {
+                leadText += "You: \(score) \r\n"
+            }
+        }
+        print(leadText)
+        countdownLabel.text = leadText
+    }
     
     func accessSoundFiles(){
         do{
