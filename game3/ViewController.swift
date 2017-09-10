@@ -137,12 +137,13 @@ class ViewController: UIViewController {
         if strikes == 1 {
             playSound("strike1.mp3")
         }
-        else if strikes == 1 {
+        else if strikes == 2 {
             playSound("strike2.mp3")
         }
         else if strikes == 3 {
             countdownLabel.text = "You WIN!"
             playSound("strike3.mp3")
+            playSound("Cheers1.m4a")
             resetGame()
         } else if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
@@ -162,9 +163,9 @@ class ViewController: UIViewController {
     
     func playSound(_ soundName: String)
     {
-        
         var audioPlayer        = AVAudioPlayer()
         let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: soundName, ofType: nil)!)
+        
         
         do{
             audioPlayer = try AVAudioPlayer(contentsOf: alertSound )
@@ -175,8 +176,23 @@ class ViewController: UIViewController {
         }
         catch{
             print("error")
-        }  
+        }
     }
+    
+    @IBAction func leaderboardButton(_ sender: UIButton) {
+        var leadText = ""
+        leaderboard.sort{ $0 > $1 }
+        for (index, score) in leaderboard.enumerated() {
+            if index < 3 {
+                leadText += "You: \(score) \r\n"
+            }
+        }
+        print(leadText)
+        countdownLabel.text = leadText
+    }
+    
+ 
+
     
 //    
 //    func accessSoundFiles(){
