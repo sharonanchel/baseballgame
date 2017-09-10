@@ -22,6 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fe98319312c0578ca9b5256c6e142d27" translatesAutoresizingMaskIntoConstraints="NO" id="Jz6-Al-IRY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Gw-MAz">
                                 <rect key="frame" x="16" y="527" width="288" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -38,7 +41,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CountDown " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-EH-8wi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-EH-8wi">
                                 <rect key="frame" x="16" y="196.5" width="288" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -56,10 +59,14 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="J2W-1U-Nxf" secondAttribute="trailing" id="1pG-qd-9BX"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="J2W-1U-Nxf" secondAttribute="bottom" constant="151" id="4N1-Iv-bZP"/>
+                            <constraint firstItem="Jz6-Al-IRY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="GNE-sL-oBe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZtS-Gw-MAz" secondAttribute="bottom" constant="5" id="HMu-FP-Mgy"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Iry-tx-PHB"/>
                             <constraint firstItem="tXh-Hh-8yg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ls7-DQ-Dl9"/>
                             <constraint firstItem="ZtS-Gw-MAz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ncc-HD-21n"/>
+                            <constraint firstAttribute="trailing" secondItem="Jz6-Al-IRY" secondAttribute="trailing" id="WsH-Sm-8Ps"/>
+                            <constraint firstItem="Jz6-Al-IRY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ej1-vU-CSF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jz6-Al-IRY" secondAttribute="bottom" id="epx-Fg-uad"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZtS-Gw-MAz" secondAttribute="trailing" id="g1H-HS-W61"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sOM-EH-8wi" secondAttribute="trailing" id="hgT-oo-YI8"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hsP-JU-uon"/>
@@ -69,6 +76,7 @@
                     </view>
                     <connections>
                         <outlet property="StartButton" destination="ZtS-Gw-MAz" id="5vt-Ad-kHA"/>
+                        <outlet property="backgroundImage" destination="Jz6-Al-IRY" id="T47-T8-6Rm"/>
                         <outlet property="countdownLabel" destination="sOM-EH-8wi" id="IJN-je-Iw7"/>
                         <outlet property="speedLabel" destination="J2W-1U-Nxf" id="jm6-S0-szo"/>
                     </connections>
@@ -78,4 +86,7 @@
             <point key="canvasLocation" x="135" y="138.38028169014083"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fe98319312c0578ca9b5256c6e142d27" width="640" height="960"/>
+    </resources>
 </document>

@@ -12,6 +12,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var StartButton: UIButton!
