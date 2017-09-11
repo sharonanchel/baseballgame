@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,12 +19,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Gw-MAz" customClass="RoundedButton" customModule="game3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="492" width="288" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Gw-MAz" customClass="RoundedButton" customModule="game3" customModuleProvider="target">
+                                <rect key="frame" x="16" y="404" width="288" height="36"/>
                                 <color key="backgroundColor" red="0.13738169693464705" green="0.45439919783984339" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="n9t-Om-cEI"/>
+                                    <constraint firstAttribute="width" constant="288" id="wAl-En-mVZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Play Ball">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,9 +38,13 @@
                                     <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NJ3-De-YmA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-Hh-8yg" customClass="RoundedButton" customModule="game3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="92" width="288" height="33"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-Hh-8yg" customClass="RoundedButton" customModule="game3" customModuleProvider="target">
+                                <rect key="frame" x="16" y="96.5" width="288" height="36"/>
                                 <color key="backgroundColor" red="0.13738169689999999" green="0.45439919779999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="TGq-e7-I1d"/>
+                                    <constraint firstAttribute="width" constant="288" id="Vda-st-XbM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Leaderboard">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,13 +71,13 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="J2W-1U-Nxf" secondAttribute="trailing" id="1pG-qd-9BX"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="J2W-1U-Nxf" secondAttribute="bottom" constant="125" id="4N1-Iv-bZP"/>
-                            <constraint firstItem="tXh-Hh-8yg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F95-JF-vNx"/>
-                            <constraint firstItem="ZtS-Gw-MAz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ihj-4f-ThR"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="NQg-0f-XrS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZtS-Gw-MAz" secondAttribute="bottom" constant="40" id="Z2P-Uq-mQg"/>
+                            <constraint firstItem="tXh-Hh-8yg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cWW-m1-2bc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sOM-EH-8wi" secondAttribute="trailing" id="hgT-oo-YI8"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hsP-JU-uon"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="o5a-Cl-eWx"/>
+                            <constraint firstItem="ZtS-Gw-MAz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uRm-ge-n2T"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="tXh-Hh-8yg" secondAttribute="bottom" constant="46" id="x9R-DW-uNX"/>
                         </constraints>
                     </view>
