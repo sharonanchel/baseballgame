@@ -12,6 +12,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var StartButton: UIButton!
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
     var hits: Int = 0
     var currentGamePoints: Int = 0
     var leaderboard: [Int] = []
+    var audioPlayerArray         = [AVAudioPlayer]()
     
     let myQueue = OperationQueue()
     
@@ -92,19 +94,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func strikerSound(){
-        if strikes == 1 {
-    
-                do{
-                    audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "strike1", ofType: "mp3")!))
-                    audioPlayer.prepareToPlay()
-                }
-                catch{
-                    print(error)
-                }
-            
-        }
-    }
+
     
     
     func startGyroUpdates(manager: CMMotionManager, queue: OperationQueue){
@@ -146,15 +136,20 @@ class ViewController: UIViewController {
     // this is where we check the strike out
     func checkStrikeOut(){
         if strikes == 1 {
-            
-        } else if strikes == 2 {
-            
-        } else if strikes == 3 {
+            playSound("strike1.mp3")
+        }
+        else if strikes == 2 {
+            playSound("strike2.mp3")
+        }
+        else if strikes == 3 {
             countdownLabel.text = "You WIN!"
-            leaderboard.append(currentGamePoints)
+            playSound("strike3.mp3")
+            playSound("Cheers1.m4a")
             resetGame()
         } else if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
+            playSound("metalbat.mp3")
+            playSound("Sad Trombone Sound.mp3")
             resetGame()
         }
     }
@@ -162,8 +157,27 @@ class ViewController: UIViewController {
     
     @IBAction func startButton(_ sender: UIButton) {
         startTimer()
-        audioPlayer.play()
+//      audioPlayer.play()
+        playSound("3,2,1,Swing.m4a")
         batter.generateHitScore()
+    }
+    
+    func playSound(_ soundName: String)
+    {
+        var audioPlayer        = AVAudioPlayer()
+        let alertSound = URL(fileURLWithPath: Bundle.main.path(forResource: soundName, ofType: nil)!)
+        
+        
+        do{
+            audioPlayer = try AVAudioPlayer(contentsOf: alertSound )
+            audioPlayerArray.append(audioPlayer)
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        }
+        catch{
+            print("error")
+        }
     }
     
     @IBAction func leaderboardButton(_ sender: UIButton) {
@@ -178,19 +192,24 @@ class ViewController: UIViewController {
         countdownLabel.text = leadText
     }
     
-    func accessSoundFiles(){
-        do{
-            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
-            audioPlayer.prepareToPlay()
-        }
-        catch{
-            print(error)
-        }
-    }
+ 
+
+    
+//    
+//    func accessSoundFiles(){
+//        do{
+//            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath:   Bundle.main.path(forResource: "3,2,1,Swing", ofType: "m4a")!))
+//            audioPlayer.prepareToPlay()
+//        }
+//        catch{
+//            print(error)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        accessSoundFiles()
+//        accessSoundFiles()
+        backgroundImage.layer.zPosition = -1
     }
     
     override func didReceiveMemoryWarning() {

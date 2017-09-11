@@ -83,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="StartButton" destination="ZtS-Gw-MAz" id="5vt-Ad-kHA"/>
+                        <outlet property="backgroundImage" destination="Jz6-Al-IRY" id="T47-T8-6Rm"/>
                         <outlet property="countdownLabel" destination="sOM-EH-8wi" id="IJN-je-Iw7"/>
                         <outlet property="speedLabel" destination="J2W-1U-Nxf" id="jm6-S0-szo"/>
                     </connections>
@@ -92,4 +93,7 @@
             <point key="canvasLocation" x="-2676" y="-428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fe98319312c0578ca9b5256c6e142d27" width="640" height="960"/>
+    </resources>
 </document>
