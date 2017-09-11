@@ -23,6 +23,7 @@
 		69C9E36A1F64A846006BD4BE /* Sad Trombone Sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3641F64A846006BD4BE /* Sad Trombone Sound.mp3 */; };
 		69C9E36B1F64A846006BD4BE /* metalbat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E3651F64A846006BD4BE /* metalbat.mp3 */; };
 		69C9E36D1F64A8C4006BD4BE /* Swoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 69C9E36C1F64A8C4006BD4BE /* Swoosh.mp3 */; };
+		9F2C86D61F662DA600D29DF4 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C86D51F662DA600D29DF4 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		69C9E3641F64A846006BD4BE /* Sad Trombone Sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sad Trombone Sound.mp3"; sourceTree = "<group>"; };
 		69C9E3651F64A846006BD4BE /* metalbat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = metalbat.mp3; sourceTree = "<group>"; };
 		69C9E36C1F64A8C4006BD4BE /* Swoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Swoosh.mp3; sourceTree = "<group>"; };
+		9F2C86D51F662DA600D29DF4 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				69C9E3361F638037006BD4BE /* Assets.xcassets */,
 				69C9E3381F638037006BD4BE /* LaunchScreen.storyboard */,
 				69C9E33B1F638037006BD4BE /* Info.plist */,
+				9F2C86D51F662DA600D29DF4 /* RoundedButton.swift */,
 			);
 			path = game3;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				69C9E3321F638037006BD4BE /* ViewController.swift in Sources */,
 				69C9E3301F638037006BD4BE /* AppDelegate.swift in Sources */,
 				444AA8D11F64AFFB00799ABE /* batter.swift in Sources */,
+				9F2C86D61F662DA600D29DF4 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
