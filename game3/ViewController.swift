@@ -1,4 +1,4 @@
-//
+
 //  ViewController.swift
 //  game3
 //
@@ -12,10 +12,10 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var StartButton: UIButton!
+    @IBOutlet weak var backgroundImage: UIImageView!
   
     var countdownTimer: Timer!
     var totalTime = 3
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     var strikes: Int = 0
     var hits: Int = 0
     var currentGamePoints: Int = 0
-    var leaderboard: [Int] = []
+    var leaderboard: [Int] = [100]
     var audioPlayerArray         = [AVAudioPlayer]()
     
     let myQueue = OperationQueue()
@@ -75,7 +75,6 @@ class ViewController: UIViewController {
                         self.hits += 1
                     } else {
                         //here is where you would strike the person out once
-                        self.countdownLabel.text = "Strike!"
                         self.currentGamePoints += self.player.getHitScore()
                         self.strikes += 1
                     }
@@ -136,17 +135,21 @@ class ViewController: UIViewController {
     // this is where we check the strike out
     func checkStrikeOut(){
         if strikes == 1 {
+            countdownLabel.text = "Strike 1"
             playSound("strike1.mp3")
         }
         else if strikes == 2 {
+            countdownLabel.text = "Strike 2"
             playSound("strike2.mp3")
         }
         else if strikes == 3 {
             countdownLabel.text = "You WIN!"
             playSound("strike3.mp3")
             playSound("Cheers1.m4a")
+            leaderboard.append(currentGamePoints)
             resetGame()
-        } else if hits == 1 {
+        }
+        if hits == 1 {
             countdownLabel.text = "The batter hit the ball, You Lose"
             playSound("metalbat.mp3")
             playSound("Sad Trombone Sound.mp3")
@@ -183,12 +186,9 @@ class ViewController: UIViewController {
     @IBAction func leaderboardButton(_ sender: UIButton) {
         var leadText = ""
         leaderboard.sort{ $0 > $1 }
-        for (index, score) in leaderboard.enumerated() {
-            if index < 3 {
-                leadText += "You: \(score) \r\n"
-            }
+        for score in leaderboard{
+            leadText += "You: \(score) \r\n"
         }
-        print(leadText)
         countdownLabel.text = leadText
     }
     
@@ -208,8 +208,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        accessSoundFiles()
         backgroundImage.layer.zPosition = -1
+//        accessSoundFiles()
+//        backgroundImage.layer.zPosition = -1
     }
     
     override func didReceiveMemoryWarning() {

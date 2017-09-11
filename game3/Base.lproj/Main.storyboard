@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,19 +19,23 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fe98319312c0578ca9b5256c6e142d27" translatesAutoresizingMaskIntoConstraints="NO" id="7b9-j1-ddQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-Gw-MAz" customClass="RoundedButton" customModule="game3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="404" width="288" height="36"/>
-                                <color key="backgroundColor" red="0.13738169693464705" green="0.45439919783984339" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="97.5" y="599" width="180" height="48"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="n9t-Om-cEI"/>
-                                    <constraint firstAttribute="width" constant="288" id="wAl-En-mVZ"/>
+                                    <constraint firstAttribute="height" constant="48" id="n9t-Om-cEI"/>
+                                    <constraint firstAttribute="width" constant="180" id="wAl-En-mVZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
+                                <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Play Ball">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -39,58 +43,65 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-Hh-8yg" customClass="RoundedButton" customModule="game3" customModuleProvider="target">
-                                <rect key="frame" x="16" y="96.5" width="288" height="36"/>
-                                <color key="backgroundColor" red="0.13738169689999999" green="0.45439919779999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="92.5" y="71" width="190" height="36"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="TGq-e7-I1d"/>
-                                    <constraint firstAttribute="width" constant="288" id="Vda-st-XbM"/>
+                                    <constraint firstAttribute="width" constant="190" id="Vda-st-XbM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="22"/>
+                                <color key="tintColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Leaderboard">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="leaderboardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h2x-bO-ig6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CountDown " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-EH-8wi">
-                                <rect key="frame" x="16" y="178.5" width="288" height="33.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-EH-8wi">
+                                <rect key="frame" x="16" y="153" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
+                                <color key="textColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2W-1U-Nxf">
-                                <rect key="frame" x="16" y="28" width="288" height="25.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2W-1U-Nxf">
+                                <rect key="frame" x="16" y="28" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="28"/>
+                                <color key="textColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.11784898034328241" green="0.38529624729238576" blue="0.0030114801505723415" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="J2W-1U-Nxf" secondAttribute="trailing" id="1pG-qd-9BX"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="J2W-1U-Nxf" secondAttribute="bottom" constant="125" id="4N1-Iv-bZP"/>
+                            <constraint firstAttribute="trailing" secondItem="7b9-j1-ddQ" secondAttribute="trailing" id="9PL-bS-9I8"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="NQg-0f-XrS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZtS-Gw-MAz" secondAttribute="bottom" constant="40" id="Z2P-Uq-mQg"/>
+                            <constraint firstItem="tXh-Hh-8yg" firstAttribute="top" secondItem="J2W-1U-Nxf" secondAttribute="bottom" constant="43" id="SZD-H4-CH7"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZtS-Gw-MAz" secondAttribute="bottom" constant="20" id="Z2P-Uq-mQg"/>
+                            <constraint firstItem="7b9-j1-ddQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="atp-NE-UNG"/>
                             <constraint firstItem="tXh-Hh-8yg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cWW-m1-2bc"/>
+                            <constraint firstItem="7b9-j1-ddQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g1D-5Y-enH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sOM-EH-8wi" secondAttribute="trailing" id="hgT-oo-YI8"/>
                             <constraint firstItem="sOM-EH-8wi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hsP-JU-uon"/>
                             <constraint firstItem="J2W-1U-Nxf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="o5a-Cl-eWx"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7b9-j1-ddQ" secondAttribute="bottom" id="rmd-SR-2jS"/>
                             <constraint firstItem="ZtS-Gw-MAz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uRm-ge-n2T"/>
-                            <constraint firstItem="sOM-EH-8wi" firstAttribute="top" secondItem="tXh-Hh-8yg" secondAttribute="bottom" constant="46" id="x9R-DW-uNX"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="StartButton" destination="ZtS-Gw-MAz" id="5vt-Ad-kHA"/>
-                        <outlet property="backgroundImage" destination="Jz6-Al-IRY" id="T47-T8-6Rm"/>
+                        <outlet property="backgroundImage" destination="7b9-j1-ddQ" id="xkn-tK-woY"/>
                         <outlet property="countdownLabel" destination="sOM-EH-8wi" id="IJN-je-Iw7"/>
                         <outlet property="speedLabel" destination="J2W-1U-Nxf" id="jm6-S0-szo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2676" y="-428"/>
+            <point key="canvasLocation" x="-2518" y="-309"/>
         </scene>
     </scenes>
     <resources>
